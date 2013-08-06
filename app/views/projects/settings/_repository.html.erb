@@ -4,7 +4,7 @@
   <%= javascript_include_tag('modalbox/modalbox', :plugin => 'redmine_git_hosting') %>
 <% end %>
 
-<% form = labelled_form_for :repository, @repository, :url => { :controller => 'repositories', :action => 'edit', :id => @project } do |f| %>
+<% form = labelled_tabular_form_for :repository, @repository, :url => { :controller => 'repositories', :action => 'edit', :id => @project } do |f| %>
 
   <%= error_messages_for 'repository' %>
 

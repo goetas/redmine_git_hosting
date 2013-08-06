@@ -1138,6 +1138,7 @@ module GitHosting
               # Git daemon support
               if (repo.extra.git_daemon == 1 || repo.extra.git_daemon == nil ) && repo.project.is_public
                 read_user_keys.push GitoliteConfig::GIT_DAEMON_KEY
+                read_user_keys.push "@all"
               end
 
               # Remove previous redmine keys, then add new keys
