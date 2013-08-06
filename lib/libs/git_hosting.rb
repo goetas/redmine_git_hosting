@@ -1029,8 +1029,10 @@ module GitHosting
         proj.member_principals.map(&:user).compact.uniq.each do |user|
           if user.allowed_to?(:commit_access, proj)
             proj_write_user_keys += user.gitolite_public_keys.active.user_key.map(&:identifier)
+            proj_write_user_keys.push user.login
           elsif user.allowed_to?(:view_changesets, proj)
             proj_read_user_keys += user.gitolite_public_keys.active.user_key.map(&:identifier)
+            proj_read_user_keys.push user.login
           end
         end
 
